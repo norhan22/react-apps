@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/styles/';
+import './assets/styles/index.css';
 import HelloWorld from './modules/HelloWorld/App';
 import TickClock from './modules/TickClock/App';
 import reportWebVitals from './reportWebVitals';
