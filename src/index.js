@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/styles/index.css';
-
+import './assets/styles/';
+import HelloWorld from './modules/HelloWorld/App';
+import TickClock from './modules/TickClock/App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-  
+    <HelloWorld />
+    <TickClock />
   </React.StrictMode>,
   document.getElementById('root')
 );
