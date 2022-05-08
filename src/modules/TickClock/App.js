@@ -1,11 +1,10 @@
-import '../../assets/styles/App.css';
+
 function app() {
   return (
-    <div className="App">
-        <header className="App-header">
+    <div>
           <h1>Ticking clock</h1>
           <h3>It is {new Date().toLocaleTimeString()}.</h3>
-        </header>
+
     </div>
   );
 }
