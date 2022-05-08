@@ -2,7 +2,7 @@ import Header from './header/index'
 import Footer from './footer/index'
 import {Outlet} from "react-router-dom";
 import './App.scss'
-const app = ()=>{
+const mainLayout = ()=>{
     return  (
         <div className='App'>
             <Header/>
@@ -14,4 +14,4 @@ const app = ()=>{
 
 )
 }
-export default app
+export default mainLayout

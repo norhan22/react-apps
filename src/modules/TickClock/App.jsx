@@ -1,5 +1,5 @@
 
-function app() {
+const app =()=> {
   return (
     <div>
           <h1>Ticking clock</h1>

@@ -5,22 +5,30 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import App from "../layout/app";
-import HelloWorld from "../modules/HelloWorld/App";
-import TickClock from "../modules/TickClock/App";
-import Users from '../modules/Users/views'
+import {Suspense ,lazy} from 'react'
 
-export default function index ()   {
+
+import Loader from '../layout/loader/index'
+ const App= lazy(() => import('../layout/mainLayout'));
+ const HelloWorld= lazy(() => import('../modules/HelloWorld/App'));
+ const TickClock= lazy(() => import('../modules/TickClock/App'));
+ const Users= lazy(() => import('../modules/Users/views/index'))
+
+const index = ()=>   {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<App/>}>
-                    <Route path="HelloWorld" element={<HelloWorld/>}/>
-                    <Route path="TickClock" element={<TickClock/>}/>
-                    <Route path="Users" element={<Users/>}/>
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <Suspense fallback={<Loader/>}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<App/>}>
+                        <Route path="HelloWorld" element={<HelloWorld/>}/>
+                        <Route path="TickClock" element={<TickClock/>}/>
+                        <Route path="Users" element={<Users/>}/>
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </Suspense>
+
     )
 
 };
+export default index;
