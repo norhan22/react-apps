@@ -1,0 +1,28 @@
+@import '../../assets/styles/variables';
+header{
+display: flex;
+  justify-content: space-between;
+
+  .App-logo{
+    height:5vh;
+    width: auto;
+    margin-left: 0;
+  }
+.App-link{
+  color: white;
+  &:hover,&:focus{
+    color:$color-feature;
+  }
+}
+nav {
+    width: auto;
+    ul {
+      list-style: none;
+      display: flex;
+      ;
+      li{
+        margin-right:10px;
+      }
+    }
+  }
+}
