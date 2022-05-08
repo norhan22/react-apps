@@ -1,4 +1,4 @@
-import './layout/App.scss';
+
 import ReactDOM from "react-dom/client";
 import {
     BrowserRouter,
