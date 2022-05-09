@@ -1,29 +1,40 @@
-
-
 import {
     BrowserRouter,
     Routes,
     Route,
 } from "react-router-dom";
-import {Suspense ,lazy} from 'react'
-
-
+import React, {Suspense} from 'react';
 import Loader from '../layout/loader/index'
- const App= lazy(() => import('../layout/mainLayout'));
- const HelloWorld= lazy(() => import('../modules/HelloWorld/App'));
- const TickClock= lazy(() => import('../modules/TickClock/App'));
- const Users= lazy(() => import('../modules/Users/views/index'))
+import routesArr from "./routes_arr";
+
+const routeEl = (path,com,key)=> <Route path={path} element={<com />} key={key}/>
 
 const index = ()=>   {
     return (
         <Suspense fallback={<Loader/>}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<App/>}>
-                        <Route path="HelloWorld" element={<HelloWorld/>}/>
-                        <Route path="TickClock" element={<TickClock/>}/>
-                        <Route path="Users" element={<Users/>}/>
-                    </Route>
+                    {routesArr.map((route, index) => (
+                        // Render more <Route>s with the same paths as
+                        // above, but different components this time.
+                        <Route
+                            key={index}
+                            path={route.path}
+                            exact={route.exact}
+                            element={<route.component />}
+
+                        >
+                            {
+                                route.children.map((ch,chIndex)=><Route
+                                    key={chIndex}
+                                    path={ch.path}
+                                    exact={ch.exact}
+                                    element={<ch.component />}
+
+                                />)
+                            }
+                        </Route>
+                    ))}
                 </Routes>
             </BrowserRouter>
         </Suspense>
